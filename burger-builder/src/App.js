@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Layout from './components/Layout/Layout';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 
 class App extends Component {
+  state = {
+    ingredients:{
+      bacon:1,
+      cheese:2,
+      meat:1,
+      salad:1
+    }
+  }
   render() {
+  //  console.log(this.state.ingredients)
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+       <Layout>
+         <BurgerBuilder
+        ingredientType = {this.state.ingredients}
+         />
+       </Layout>
       </div>
     );
   }
